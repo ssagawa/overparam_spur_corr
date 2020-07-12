@@ -57,6 +57,7 @@ You can download a tarball of this dataset [here](https://nlp.stanford.edu/data/
 
 A sample command to train random features model on Waterbirds is:
 `python run_waterbirds_random_features.py --features_path resnet18_1layer.npy --metadata_path [root_dir]/cub/data/waterbird_complete95_forest2water2/metadata.csv -N 100 -o results.csv --model_type logistic --error_type zero_one --Lambda 1e-09 --seed 0 --model_file model.pkl`. 
+
 You can extract the features `resnet18_1layer.npy` using `write_pretrained_features.py`.
 
 Note that compared to the training set, the validation and test sets are constructed with different proportions of each group. We describe this in more detail in Appendix C.1 in our [prior paper](https://arxiv.org/abs/1911.08731), which we reproduce here for convenience:
