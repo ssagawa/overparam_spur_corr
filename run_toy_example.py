@@ -100,7 +100,6 @@ def process_args(args):
 
     # error
     if args.error_type=='zero_one':
-        A
         error_fn = zero_one_error
     elif args.error_type=='squared':
         error_fn = squared_error
