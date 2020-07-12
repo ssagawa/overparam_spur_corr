@@ -27,7 +27,7 @@ def main():
 
     process_args(args)
 
-    full_data, n_groups = load_waterbirds_data(frac=args.frac)
+    full_data, n_groups = load_waterbirds_data(args.features_path, args.metadata_path, frac=args.frac)
     erm_error, over_error, under_error = run_random_features_model(full_data=full_data,
         n_groups=n_groups,
         N=args.n_random_features,
@@ -65,10 +65,10 @@ def process_args(args):
         error_fn = squared_error
     args.error_fn = error_fn
 
-def load_waterbirds_data(frac=1.0):
+def load_waterbirds_data(features_path, metadata_path, frac=1.0):
     TRAIN, VAL, TEST = (0, 1, 2)
-    features = np.load(args.features_path)
-    metadata = pd.read_csv(args.metadata_path)
+    features = np.load(features_path)
+    metadata = pd.read_csv(metadata_path)
     # Train
     train_mask = metadata['split']==TRAIN
     train_y = metadata[train_mask]['y'].values
